@@ -1,7 +1,15 @@
 import React from 'react'
 import { v4 as uuidv4 } from "uuid";
 
-function Form({ input, setInput, input2, setInput2, items, setItems }) {
+function Form({ input, setInput, input2, setInput2, items, setItems, editItem, setEditItem }) {
+
+  const updateItem = (title, id, completed, favoriteNumber) => {
+    const newItem = items.map((item) => (
+      item.id === id ? { title, id, completed, favoriteNumber } : item
+    ))
+    setItems(newItem);
+    setEditItem('');
+  };
 
   const onInputChange = (e) => {
     setInput(e.target.value);
@@ -13,9 +21,13 @@ function Form({ input, setInput, input2, setInput2, items, setItems }) {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    setItems([...items, { id: uuidv4(), title: input, favoriteNumber: input2, completed: false }])
-    setInput('');
-    setInput2('');
+    if (!editItem) {
+      setItems([...items, { id: uuidv4(), title: input, favoriteNumber: input2, completed: false }]);
+      setInput("");
+      setInput2("");
+    } else {
+      updateItem(input, editItem.id, editItem.completed, input2)
+    }
   }
   return (
 
@@ -29,7 +41,7 @@ function Form({ input, setInput, input2, setInput2, items, setItems }) {
       />
       <input
         type="text"
-        placeholder="Favorite Animal"
+        placeholder="Favorite Number"
         value={input2}
         required
         onChange={onInputChange2}
