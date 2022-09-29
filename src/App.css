@@ -1,3 +1,62 @@
-.complete{
-  text-decoration: line-through;
+.bodyRowComplete{
+  background-color: #a92ca2;
+  color: white;
+}
+
+.headerRow{
+  background-color: #135d66;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bodyRow{
+  color: #135d66;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bodyRowComplete{
+  background-color: #a92ca2;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bodyRow:nth-child(even) {
+  background-color: #4faeba;
+  color:#272822;
+}
+
+.form{
+  background-color: #272822;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+.button{
+  background-color: #135d66;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+}
+
+.button:hover{
+  color: #135d66;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-color: #135d66;
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-color: #135d66;
 }

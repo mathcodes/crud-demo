@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <Form 
+      <Form
         input={input}
         setInput={setInput}
         input2={input2}
@@ -24,15 +24,15 @@ function App() {
         count={count}
         setCount={setCount}
       />
-      
-        <ItemsList 
-          items={items}
-          setItems={setItems}
-          setEditItem={setEditItem}
-          count={count}
-          setCount={setCount} 
-        />
-      
+
+      <ItemsList
+        items={items}
+        setItems={setItems}
+        setEditItem={setEditItem}
+        count={count}
+        setCount={setCount}
+      />
+
     </div>
   )
 }

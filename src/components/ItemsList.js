@@ -28,33 +28,30 @@ function ItemsList({ items, setItems, setEditItem }) {
 
   return (
     <Container>
-      <Row>
-        <Col>ID</Col>
-        <Col>#</Col>
+      <Row className="headerRow">
+        <Col sm={1}>#</Col>
         <Col>Name</Col>
-        <Col>Favorite Number</Col>
+        <Col sm={3}>Favorite Number</Col>
         <Col sm={1}><i className="fa fa-check-circle" /></Col>
         <Col sm={1}><i className="fa fa-edit" /></Col>
         <Col sm={1}><i className="fa fa-trash" /></Col>
       </Row>
       {items.map((item, index) => (
     
-        <Row key={item.id}>
-          <Col className={`list ${item.completed ? 'complete': ''}`}>{item.id}</Col>
-          <Col className={`list ${item.completed ? 'complete': ''}`}>{index + 1}</Col>
-          <Col className={`list ${item.completed ? 'complete': ''}`}>{item.title}</Col>
-          <Col className={`list ${item.completed ? 'complete': ''}`}>{item.favoriteNumber}</Col>
-          <Col sm={1}><Button onClick={()=>handleComplete(item)}><i className="fa fa-check-circle" /> </Button></Col>
-          <Col sm={1}><Button onClick={()=>handleEdit(item)}><i className="fa fa-edit" /> </Button></Col>
-          <Col sm={1}><Button onClick={()=>handleDelete(item)}><i className="fa fa-trash" /> </Button></Col>
+        <Row className={`list ${item.completed ? 'bodyRowComplete': 'bodyRow'}`} key={item.id}>
+          <Col sm={1} className={`list ${item.completed ? 'complete': ''}`}>{index + 1}</Col>
+          <Col >{item.title}</Col>
+          <Col sm={3} className={`list ${item.completed ? 'complete': ''}`}>{item.favoriteNumber}</Col>
+          <Col sm={1}><Button className="button" onClick={()=>handleComplete(item)}><i className="fa fa-check-circle" /> </Button></Col>
+          <Col sm={1}><Button className="button" onClick={()=>handleEdit(item)}><i className="fa fa-edit" /> </Button></Col>
+          <Col sm={1}><Button className="button" onClick={()=>handleDelete(item)}><i className="fa fa-trash" /> </Button></Col>
         </Row>
         
       ))}
-      <Row>
-        <Col>ID</Col>
-        <Col>#</Col>
+      <Row className="headerRow">
+        <Col sm={1}>#</Col>
         <Col>Name</Col>
-        <Col>Favorite Number</Col>
+        <Col sm={3}>Favorite Number</Col>
         <Col sm={1}><i className="fa fa-check-circle" /></Col>
         <Col sm={1}><i className="fa fa-edit" /></Col>
         <Col sm={1}><i className="fa fa-trash" /></Col>

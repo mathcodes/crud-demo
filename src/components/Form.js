@@ -12,7 +12,7 @@ function Form({ input, setInput, input2, setInput2, items, setItems, editItem, s
   };
 
   useEffect((count) => {
-    if(editItem) {
+    if (editItem) {
       setInput(editItem.title);
       setInput2(editItem.favoriteNumber);
     } else {
@@ -41,24 +41,25 @@ function Form({ input, setInput, input2, setInput2, items, setItems, editItem, s
     }
   }
   return (
-
-    <form onSubmit={onFormSubmit}>
-      <input
-        type="text"
-        placeholder="First Name"
-        value={input}
-        required
-        onChange={onInputChange}
-      />
-      <input
-        type="number"
-        placeholder="Favorite Number"
-        value={input2}
-        required
-        onChange={onInputChange2}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="container form">
+      <form onSubmit={onFormSubmit}>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={input}
+          required
+          onChange={onInputChange}
+        />
+        <input
+          type="number"
+          placeholder="Favorite Number"
+          value={input2}
+          required
+          onChange={onInputChange2}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 
