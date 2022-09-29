@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { v4 as uuidv4 } from "uuid";
 
-function Form({ input, setInput, input2, setInput2, items, setItems, editItem, setEditItem }) {
+function Form({ input, setInput, input2, setInput2, items, setItems, editItem, setEditItem, count, setCount }) {
 
   const updateItem = (title, id, completed, favoriteNumber) => {
     const newItem = items.map((item) => (
@@ -10,6 +10,17 @@ function Form({ input, setInput, input2, setInput2, items, setItems, editItem, s
     setItems(newItem);
     setEditItem('');
   };
+
+  useEffect((count) => {
+    if(editItem) {
+      setInput(editItem.title);
+      setInput2(editItem.favoriteNumber);
+    } else {
+      setInput('');
+      setInput2('');
+      count++;
+    }
+  }, [setInput, setInput2, setCount, editItem]);
 
   const onInputChange = (e) => {
     setInput(e.target.value);
@@ -40,7 +51,7 @@ function Form({ input, setInput, input2, setInput2, items, setItems, editItem, s
         onChange={onInputChange}
       />
       <input
-        type="text"
+        type="number"
         placeholder="Favorite Number"
         value={input2}
         required
